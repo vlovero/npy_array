@@ -18,6 +18,7 @@ add_library(npy_arrays STATIC
     npy_array_list.c
     npy_array_list.h
 )
+set_target_properties(npy_arrays PROPERTIES PUBLIC_HEADER "npy_array.h;npy_array_list.h")
 
 set(libzip_INCLUDE_DIR ${libzip_SOURCE_DIR}/lib)
 include_directories(
@@ -26,3 +27,4 @@ include_directories(
 )
 
 target_link_libraries(npy_arrays zip)
+install(TARGETS npy_arrays)
